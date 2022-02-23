@@ -1,0 +1,29 @@
+{
+  "name": "texas-holdem-multiplayer",
+  "version": "1.0.0",
+  "description": "This is a Texas Hold'em Multiplayer game, that you can play on your local wifi with your friends.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ninj4M4ster/Texas-Holdem.git"
+  },
+  "keywords": [
+    "poker",
+    "node.js"
+  ],
+  "author": "Ninj4M4ster",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ninj4M4ster/Texas-Holdem/issues"
+  },
+  "homepage": "https://github.com/Ninj4M4ster/Texas-Holdem#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "ip": "^1.1.5",
+    "socket.io": "^4.4.1"
+  }
+}
