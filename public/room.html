@@ -11,5 +11,15 @@
         <textarea placeholder="Insert you message here..." onkeydown="send_message()"></textarea>
     </div>
 <div id="chat"></div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+
+    socket.emit("join-new-room");
+
+    socket.on("new-user-joined", () => {
+        alert("New user joined the room!");
+    });
+</script>
 </body>
 </html>

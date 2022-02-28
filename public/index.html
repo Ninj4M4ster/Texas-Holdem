@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./stylesheets/index.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <title>Index</title>
 </head>
 <body>
     <h1 id="title">Texas Hold'em - Multiplayer</h1>
-        <div id="main">
-            <h3>Create a new room or join to an existing one!</h3>
-                <form name="form" id="form" action="/join_room" method="POST">
+        <div id="container">
+            <h3 id="info">Create a new room or join to an existing one!</h3>
+                <form name="form" action=/room/ id="form" method="GET">
                     <div id="labels">
                         <label for="room_id" id="room_id_lb">Enter room id or leave empty to create a new room.</label>
                         <input type="text" id="room_id" name="room_id" placeholder="Room Id"><br>
                         <label for="client_name" id="client_name_lb">Enter your nickname</label>
                         <input type="text" id="client_name" name="client_name" placeholder="Your name"><br>
-                        <button type="submit" id="submit_button">Start!</button>
+                        <button type="submit" id="submit_button" onclick="joinClientToRoom()">Start!</button>
                     </div>
                 </form>
         </div>
-    <script src="/routes/index.js"></script>
-    <script src="/node_modules/socket.io/client-dist/socket.io.js"></script>
-    <script>
-        var socket = io();
-    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascript/index.js"></script>
 </body>
 </html>

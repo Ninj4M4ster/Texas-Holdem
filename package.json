@@ -23,6 +23,8 @@
   "homepage": "https://github.com/Ninj4M4ster/Texas-Holdem#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "express-socket.io-session": "^1.3.5",
     "ip": "^1.1.5",
     "socket.io": "^4.4.1"
   }
