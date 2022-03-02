@@ -68,5 +68,5 @@ io.of('/').adapter.on("leave-room", (room, id) => {
 });
 
 server.listen(8000, () => {
-    console.log('Server is listening on port 8000');
+    console.log(`Server is listening on ip ${ip}, on port 8000`);
 });
