@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const http = require("http");
 
+//handlers
+
+const rooms = require("./handlers/rooms");
+
 const ip = require("ip").address()
 
 app.set("ip", ip);
@@ -16,6 +20,7 @@ const session = require("express-session")({
     saveUninitialized: true
 });
 const sharedsession = require("express-socket.io-session");
+const { resourceUsage } = require('process');
 
 app.use(session);
 
@@ -30,16 +35,23 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/room/', (req, res) => {
+app.post('/room/', (req, res) => {
     res.sendFile(__dirname + '/public/room.html');
 });
 
 io.on('connection', (socket) => {
     console.log('a user connected');
 
-    socket.on("send-room-id", (room_id) => {
+    socket.on('ask-for-rooms-count', () => {
+        let rooms_count = rooms.countRooms(io.of('/').adapter.rooms);
+        socket.emit("get-rooms-count", rooms_count - io.engine.clientsCount + 1);
+    })
+
+    socket.on("send-name-and-roomid-to-server", (room_id, nickname) => {
         console.log(room_id);
+        console.log(nickname);
         socket.handshake.session.room_id = room_id;
+        socket.handshake.session.nickname = nickname;
         socket.handshake.session.save();
     });
 

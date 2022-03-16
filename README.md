@@ -8,3 +8,4 @@ This project was created to learn creating node.js servers that can deal with in
 ## Installation
 1. Clone repository using commmand: `git clone https://github.com/Ninj4M4ster/Texas-Holdem.git`
 2. Install [Node.js](https://nodejs.org/en/) LTS version.
+3. Open command line in repository and run `npm install`.

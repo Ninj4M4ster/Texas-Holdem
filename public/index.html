@@ -17,13 +17,13 @@
         </div>
         <div id="container">
             <h3 id="info">Create a new room or join to an existing one!</h3>
-                <form name="form" action=/room/ id="form" method="GET">
+                <form name="form" action=/room/ id="form" method="POST">
                     <div id="labels">
                         <label for="room_id" id="room_id_lb">Enter room id or leave empty to create a new room.</label>
                         <input type="text" id="room_id" name="room_id" placeholder="Room Id"><br>
                         <label for="client_name" id="client_name_lb">Enter your nickname</label>
                         <input type="text" id="client_name" name="client_name" placeholder="Your name"><br>
-                        <button type="submit" id="submit_button" onclick="joinClientToRoom()">Start!</button>
+                        <button type="submit" id="submit_button" onclick="joinClientToRoom(event)">Start!</input>
                     </div>
                 </form>
         </div>
