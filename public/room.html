@@ -7,7 +7,12 @@
     <title>Room</title>
 </head>
 <body>
-    <div>
+    <div id="users">
+        <ul id="users_list"></ul>
+    </div>
+    <div id="settings"></div>
+    <div id="chat">
+        <ul id="chat_list"></ul>
         <textarea placeholder="Insert you message here..." onkeydown="send_message()"></textarea>
     </div>
 <div id="chat"></div>
@@ -21,5 +26,6 @@
         alert("New user joined the room!");
     });
 </script>
+<script src="javascript/room.js"></script>
 </body>
 </html>

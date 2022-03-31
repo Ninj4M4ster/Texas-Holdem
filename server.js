@@ -24,6 +24,9 @@ const { resourceUsage } = require('process');
 
 app.use(session);
 
+app.use(express.urlencoded());
+app.use(express.json());
+
 io.use(sharedsession(session, {
     autoSave: true
 }));
@@ -36,6 +39,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('/room/', (req, res) => {
+    if(req.body.room_id)
+        var room_id = req.body.room_id;
+    res.redirect(`/room/${room_id}`);
+});
+
+app.get('/room/:room_id', (req, res) => {
     res.sendFile(__dirname + '/public/room.html');
 });
 
