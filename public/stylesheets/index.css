@@ -1,8 +1,49 @@
-@media only screen and (max-width:600px), (max-height:700px) {
+@media (min-width:320px) {
     html {
-        font-size: 10px;
+        font-size: 15px;
+    }
+    
+    #content {
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    #submit_button {
+        height: 3.5em;
+        font: 13px;
+        width: 85%;
     }
 }
+
+@media (min-width:600px) {
+    html {
+        font-size: 24px;
+    }
+
+    #content {
+        max-height: 40em;
+        max-width: 30em;
+    }
+
+    #submit_button {
+        height: 3.5em;
+        width: 70%;
+    }
+}
+
+@media (min-width:1025px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ }
+@media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
+@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }
+
 
 html {
     width: 100%;
@@ -10,7 +51,7 @@ html {
 }
 
 body {
-    background-image:linear-gradient(40deg, white , white, grey );
+    background-color: rgb(222, 222, 222);
     background-repeat: no-repeat;
 }
 
@@ -22,14 +63,12 @@ body {
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
-    width:70%;
-    height: 70%;
-    min-height: 360px;
-    min-width: 230px;
-    background-color: rgb(228, 228, 228);
-    /* border: 0.15em solid rgb(0, 0, 0); */
-    border-radius: 0.5em;
-    box-shadow: 1em 1em 2em rgba(0, 0, 0, 0.4);
+    width:100%;
+    height: 100%;
+    background-color: rgb(222, 222, 222);
+    border-radius: 1em;
+    box-shadow: 1em 1em 2em rgba(105, 105, 105, 0.4), 
+    -1em -1em 2em rgb(255, 255, 255);
 }
 
 #title {
@@ -67,12 +106,23 @@ body {
     height:70%;
 }
 
+#form {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    place-items: center;
+    width:100%;
+    height:60%;
+}
+
 #labels {
     display:flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     vertical-align: center;
-    gap:0.4em;
+    text-align: left;
+    width:70%;
+    gap:0.8em;
     padding-left: 1em;
     padding-right: 1em;
     height:100%;
@@ -83,34 +133,60 @@ body {
 }
 
 input[type=text] {
-    width:60%;
+    width:99%;
     height:2em;
-    background-color: rgb(255, 255, 255);
-    border-radius:0.6em;
-    border:0.25em solid rgb(255, 255, 255);
+    background-color: rgba(54, 38, 14, 0);
+    border: none;
+    border-bottom: 0.25em solid rgb(110, 110, 110);
     transition: 0.3s;
-    /* box-shadow: 0.2em 0.2em 0.5em rgb(253, 166, 66); */
 }
 
-input[type=text]:hover, input[type=text]:focus {
-    /* background-color:rgb(255, 136, 0); */
-    border: 0.25em solid rgb(255, 136, 0);
-    /* box-shadow: 0.2em 0.2em 2em rgb(255, 136, 0) */
+input[type=text]:hover, input[type=text]:focus, input[type=text]:focus-visible {
+    border: none;
+    stroke: none;
+    outline: none;
+    border-bottom: 0.25em solid rgb(255, 153, 0);
 }
 
 #submit_button {
-    background-color: rgb(255, 255, 255);
-    color: rgb(32, 32, 32);
-    width:50%;
-    height:2em;
     border:0;
-    border-radius: 0.6em;
-    /* box-shadow: 0 0 1em rgb(255, 166, 66); */
+    border-radius: 1em;
     font-weight: bold;
     transition: 0.5s;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align:center;
+    overflow: hidden;
+    font-size: 16px;
+    position:relative;
+    transition: 0.3s;
+    transition-delay: 0s;
 }
 
-#submit_button:hover, #submit_button:focus {
-    background-color: rgb(255, 136, 0);
-    /* box-shadow: 0 0 2em rgb(255, 136, 0); */
+#submit_text {
+    transform:translate(0, 30%);
+    z-index: 10;
+    width:100%;
+    height:100%;
+    line-height: 100%;
+}
+#submit_background {
+    position:absolute;
+    width: 0%;
+    height: 100%;
+    background-color: rgb(255, 153, 0);
+    z-index: 2;
+    transition: 0.3s;
+}
+
+#submit_button:hover #submit_background {
+    width:100%;
+    height:100%; 
+}
+
+#submit_button:hover {
+    box-shadow: 0 0 1em 0.25em rgb(248, 188, 98), 
+    0 0 1em 0.5em rgb(255, 205, 147);   
+    transition-delay: 0.15s;
 }
